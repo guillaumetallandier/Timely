@@ -1,7 +1,14 @@
 <resources>
-    <string name="app_name">QTQ</string>
+    <string name="app_name">MyApp</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="editTArretChoisie">Arrêt choisie</string>
+
+    <string name="EditTextStop">Entrer un nom d\'arret </string>
+    <string name="button">Recherche</string>
+    <string name="txtVDIrection">Textview</string>
+    <string name="txtVLigne">TextView</string>
+    <string name="txtVHoraire">TextView</string>
+    <string name="txtVDirection">TextView</string>
+    <string name="favoris">Favoris</string>
+
 </resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="EditTextStop">Entrer a stop name</string>
+    <string name="button">Search</string>
+    <string name="favoris">Favorite</string>
+    <string name="txtVDirection">TextView</string>
+    <string name="txtVHoraire">TextView</string>
+    <string name="txtVLigne">TextView</string>
+    <string name="txtVDIrection">TextView</string>
+
+</resources>

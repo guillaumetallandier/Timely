@@ -1,5 +1,0 @@
-identifiant/token: d15b2824-e939-4951-bb65-b2038f14c9ea
-mdp : 7!77666AxzeDX
-
-request : https://api.cts-strasbourg.eu/v1/siri/2.0/estimated-timetable?VehicleMode=tram&LineRef=A
-respons :"DestinationName","ExpectedDepartureTime
