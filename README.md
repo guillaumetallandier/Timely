@@ -25,9 +25,9 @@ L'application reconnaitra le language du téléphone lors de son lancement afin 
 
 Les toasts sont des messages en bas de l'écran permettant de transmettre des informations a l'utilisateur .
 
-`
+```
     this,"Data Saved",Toast.LENGTH_SHORT).show()
-`
+```
 
 
 ## Les Boutons 
@@ -35,12 +35,43 @@ Les toasts sont des messages en bas de l'écran permettant de transmettre des in
 Le bouton permet de sauvegarder les données et de les transmettres dans une autre activité à l'aide d'un Intent 
 
 
-`  
+```
     Intent activite_res = new Intent(getApplicationContext(),ResultActivity
-    
-`
+    activite_res.putExtra("name",((EditText)findViewById(R.id.id_editText)).getText().toString());
+    startActivity(activite_res);
+        finish();
+```
 
 
+## Cycle de vie
+
+
+- Au lancement de l'application Android appel les méthodes `onCreate`, `onStart` et `onResume`.
+- A la fermeture de l'application Android appel les méthodes `onPause`,`onStop` et `onDestroy`.
+- Quand l'application est passer au second plan Android appel la méthode `onPause`
+
+
+
+## SharedPreferences
+
+L'on crée un Preference Manager que les attaches a l'activité avant de crée un éditeur.
+``` 
+ mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mPreferences.edit();
+
+```
+L'on édite l'éditeur afin qu'il sauvegarde les données inscrit dans R.string.EditTextStop. 
+Il ne faut surtout pas oublier de apply() afin que la sauvegarde se face.
+```
+String name= etxt.getText().toString();
+                mEditor.putString(getString(R.string.EditTextStop),name);
+                mEditor.apply();
+
+```
+
+
+
+### TP2 : Fragment, NavigationDrawer
 
 
 
