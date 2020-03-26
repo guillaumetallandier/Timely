@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="EditTextStop">Merchit un arsav-bus</string>
+    <string name="button">Adglaskañ</string>
+    <string name="txtVDIrection">Textview</string>
+    <string name="txtVLigne">Textview</string>
+    <string name="txtVHoraire">Textview</string>
+    <string name="txtVDirection">Textview</string>
+    <string name="favoris">Valido</string>
+</resources>

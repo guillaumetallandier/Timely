@@ -9,6 +9,6 @@
     <string name="txtVLigne">TextView</string>
     <string name="txtVHoraire">TextView</string>
     <string name="txtVDirection">TextView</string>
-    <string name="favoris">Favoris</string>
+    <string name="favoris">Favori</string>
 
 </resources>

@@ -3,8 +3,6 @@ package com.example.myapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,16 +13,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
+
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -40,15 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtv;
     private EditText etxt;
 
-
     private RecyclerView recyclerView;
     private List<Bus> mesBus;
     private MyBusAdapter monAdapter;
 
-   /* public static final String SHARED_PREFS =" sharedPrefs";
-    public static final String TEXT="text";
-    private String textShared;
-  */
   ;
 
    private SharedPreferences mPreferences;
@@ -57,66 +47,36 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("patate 2");
-
         setContentView(R.layout.activity_main);
         Button btnfav = findViewById(R.id.btnajoutFav);
         final TextView txtv =findViewById(R.id.txtv1);
         Button btn = findViewById(R.id.btn1);
         etxt = findViewById(R.id.etxt1);
-
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mPreferences.edit();
-
-        System.out.println("patate 1");
         checkedSharedPreferences();
-        System.out.println("patate 2");
-
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 new geturl(txtv).execute();
             }
         });
-        System.out.println("patate 3");
-
 
         btnfav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // saveData();
                 String name= etxt.getText().toString();
                 mEditor.putString(getString(R.string.EditTextStop),name);
                 mEditor.apply();
+
             }
         });
-
-
-        System.out.println("patate 4");
-      //  loadData();
+        
     }
     public void checkedSharedPreferences(){
         String nameStop=mPreferences.getString(getString(R.string.EditTextStop),"");
         etxt.setText(nameStop);
     }
-/*
 
-    public void saveData(){
-        SharedPreferences sharedPreferences =getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(TEXT,etxt.getText().toString());
-        editor.apply();
-
-        Toast.makeText(this,"Data Saved",Toast.LENGTH_SHORT).show();
-    };
-
-
-    public void loadData(){
-        SharedPreferences sharedPreferences =getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-        textShared=sharedPreferences.getString(TEXT,"");
-        etxt.setText(textShared);
-    }
-
-*/
 
     private class geturl extends AsyncTask<Void, Void, String> {
         private TextView txtv;
@@ -231,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                     System.out.println("direction :" + direction);
                     System.out.println("horaire :" + horaire);
                     mesBus.add(new Bus(horaire.substring(11,16),line,direction));
-                 //   this.txtv.append(line + ", " + direction + " : " + horaire + "\n\n\n\n");
+
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
