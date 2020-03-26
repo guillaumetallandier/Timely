@@ -1,4 +1,9 @@
 <h1>  Compte-rendu Traveaux Pratiques</h1>
+# Explication de QTQ
+
+Quel Tram Quand(QTQ) est une application pour connaitre l'horaire du passage des bus/tram de la CTS à l'arret choisie.
+L'application accèdent à l'aide de requète à la base de donnée en temps réel de la cts afin de trouvé les bus/trams souhaité.
+
 
 # TP1 : Prise en main du framework
 
@@ -21,13 +26,17 @@ Chaque text inscrit dans une vue est géré pour le fichier String.xml,
 l'on peut rajouter d'autre language afin de traduire les textes en fonction de la langue du téléphone.
 L'application reconnaitra le language du téléphone lors de son lancement afin d'afficher le language adéquat. 
 
+Le String.xml a par exemple été traduit en Anglais et en Breton pour assurer la bonne compréhension de l'application a tous les utlisateurs! 
+(Même si les utilisateurs breton du raison CTS sont peu nombreux)
 ## Les Toasts 
 
 Les toasts sont des messages en bas de l'écran permettant de transmettre des informations a l'utilisateur .
+Un Toast notifie l'utilisateur que l'arret qu'il a tapé à bien été enregistrer comme favori. 
 
 ```
-    this,"Data Saved",Toast.LENGTH_SHORT).show()
+    Toast.MakeText(this,"Data Saved",Toast.LENGTH_SHORT).show()
 ```
+
 
 
 ## Les Boutons 
@@ -92,9 +101,24 @@ fTransaction.replace(R.id.myLayout,fragment).addToBackStack(null);
 fTransaction.commit();
 ```
 
+
 L'interret des fragments est de pouvoir communiquer entre eux et avec les activités à l'aide
 d'un **onFragmentInteractionListener** 
-### Difficultés rencontrés : 
+
+```java
+@Override
+public void onFragmentInteraction(int dest , String text) {
+    NavController navController = Navigation.findNavController(this,R.id.fraghost);
+    Bundle args = new Bundle();
+    args.putString("Ktext",text);
+    if(destination == 1) {
+        navController.navigate(R.id.frag1, args);
+    } else {
+        navController.navigate(R.id.frag2, args);
+    }
+}
+```
+ 
 
 
 
