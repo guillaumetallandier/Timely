@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import org.json.JSONArray;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 String name= etxt.getText().toString();
                 mEditor.putString(getString(R.string.EditTextStop),name);
                 mEditor.apply();
-
+                Toast.makeText(getApplicationContext(),"Data saved", Toast.LENGTH_SHORT).show();
             }
         });
         
