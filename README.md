@@ -71,8 +71,54 @@ String name= etxt.getText().toString();
 
 
 
-### TP2 : Fragment, NavigationDrawer
+# TP2 : Fragment, NavigationDrawer
+
+## NavigationDrawer
+
+Le NavigationDrawer est composé d'un **DrawerLayout** qui représente la vue principale 
+en contenant les sous-vues comme le **FrameLayout** et la **Toolbar**. 
+La **NavigationView** représente le menu de l'application. Elle permet d'acceder à l'ensemble de Pages/Fragments
+
+
+## Fragments 
+
+Un **Fragment** est une view permettant d'afficher certaine information precise. 
+Pour crée un Fragment il faut :
+```
+Fragment fragment = new myFragment();
+FragmentManager fManager = getSupportFragmentManager();
+FragmentTrasaction fTransaction = fManager.beginTransaction();
+fTransaction.replace(R.id.myLayout,fragment).addToBackStack(null);
+fTransaction.commit();
+```
+
+L'interret des fragments est de pouvoir communiquer entre eux et avec les activités à l'aide
+d'un **onFragmentInteractionListener** 
+### Difficultés rencontrés : 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+Le RecyclerView permet d'afficher une certaine quantité d'information tout en limitant la mémoire consommé. 
+Toutes information qui disparait de l'écran (en scrollant) est décharger et réutiliser pour afficher les inforamtions suivante.
+Le NavigationDrawer permet de ne pas charger toutes les données d'un coups, seul les informations afficher sont chargées. 
+
+
+Le ViewHolder 
+```
+public MyViewHolder onCreateViewHolder(ViewGroup parent,int viewType){
+            LayoutInflater layoutInflater= LayoutInflater.from(parent.getContext());
+            View view = layoutInflater.inflate(R.layout.affiche_bus,parent,false);
+            return new MyViewHolder(view);
+        }
+```
